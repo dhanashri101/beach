@@ -1,0 +1,241 @@
+/* Base Container */
+.app-container {
+  background-color: var(--background, #fff);
+  color: var(--foreground, #000);
+}
+
+/* Header & Navigation */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.logo {
+  font-family: serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: -0.025em;
+  text-decoration: none;
+  color: white;
+}
+
+.main-nav {
+  display: none;
+}
+
+/* Show nav on medium screens and up */
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.main-nav a:hover {
+  opacity: 1;
+}
+
+.main-nav .active-link {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  padding-bottom: 0.25rem;
+  opacity: 1;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.social-links span:first-child {
+  opacity: 0.9;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Parallax Layout */
+.parallax-section {
+  position: relative;
+  height: 250vh; 
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-motion-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200vh;
+}
+
+.image-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sand-layer {
+  margin-top: -1px; /* Prevents visual gaps between stacked images */
+}
+
+/* Text Overlays */
+.content-overlay {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 1.5rem;
+}
+
+.scene-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  line-height: 1;
+  margin: 0;
+}
+
+.text-serif {
+  font-family: serif;
+  font-size: clamp(3.5rem, 10vw, 9rem);
+}
+
+.text-script {
+  /* Assuming you map a cursive font to 'font-script' */
+  font-family: cursive; 
+  font-size: clamp(4rem, 12vw, 11rem);
+  margin-left: -0.5rem;
+}
+
+.subtitle {
+  margin-top: 1.5rem;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.mb-spaced {
+  margin-bottom: 1.25rem;
+}
+
+.coastal-body {
+  margin-top: 2rem;
+  max-width: 36rem;
+}
+
+.description {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.primary-button {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: oklch(0.55 0.09 200); /* Note: check browser support for OKLCH, fallback to rgb/hex if needed */
+  color: white;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.primary-button:hover {
+  opacity: 0.9;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.pulse-line {
+  width: 1px;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.arrow-down {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
